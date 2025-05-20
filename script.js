@@ -19,3 +19,16 @@ shareButton.addEventListener("click", function () {
     footer.classList.toggle("content-footer-active");
   }
 });
+
+document.addEventListener("click", function (event) {
+  if (
+    !shareButton.contains(event.target) &&
+    !activeStateShareContainer.contains(event.target)
+  ) {
+    activeStateShareContainer.classList.remove("show");
+    mobileActiveStateShareContainer.classList.remove("show");
+    author.classList.remove("hidden");
+    shareContainer.classList.remove("share-container-mobile");
+    footer.classList.remove("content-footer-active");
+  }
+});
