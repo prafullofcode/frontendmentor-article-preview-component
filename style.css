@@ -32,6 +32,12 @@ body {
   z-index: -1;
 }
 
+.actual-content {
+  display: flex;
+  flex-direction: column;
+  gap: 1rem;
+}
+
 .card {
   display: flex;
   max-width: 75rem;
@@ -39,11 +45,15 @@ body {
   background-color: white;
   border-radius: 1rem;
   z-index: 0;
-  display: flex;
   flex-shrink: 100%;
   flex-grow: 100%;
   box-shadow: 0 1rem 1rem rgba(128, 128, 128, 0.399);
   margin: 3rem;
+  transition: box-shadow 0.3s ease;
+}
+
+.card:hover {
+  box-shadow: 0 4rem 5rem rgba(0, 0, 0, 0.1);
 }
 
 .image-container {
@@ -60,10 +70,11 @@ body {
   padding: 3.5rem;
   display: flex;
   flex-direction: column;
-  gap: 1.5rem;
+  gap: 2.5rem;
   max-width: 45rem;
   position: relative;
 }
+
 .content-heading {
   font-weight: 700;
   color: var(--very-Dark-Grayish-Blue);
@@ -76,6 +87,7 @@ body {
   line-height: 160%;
   font-weight: 500;
 }
+
 .content-footer {
   display: flex;
   flex-direction: row;
@@ -116,8 +128,6 @@ body {
   display: flex;
   align-items: center;
   background-color: var(--light-Grayish-Blue);
-  /* width: 3rem; */
-  /* height: 3rem; */
   padding: 0.8rem;
   transition: background-color 0.4s ease-in;
   border-radius: 3rem;
@@ -129,19 +139,14 @@ body {
   background-color: var(--very-Dark-Grayish-Blue);
   cursor: pointer;
 }
+
 .share-icon {
   color: var(--very-Dark-Grayish-Blue);
-  transition: color 0.5s ease-in-out;
+  transition: transform 0.3s ease, color 0.3s ease;
 }
 
 .share-container:hover .share-icon {
   color: whitesmoke;
-}
-
-.active-state {
-  position: absolute;
-  right: -26%;
-  bottom: 170%;
 }
 
 .active-state-share-popup {
@@ -155,6 +160,15 @@ body {
   position: absolute;
   bottom: 140%;
   box-shadow: 0 1rem 1rem rgba(128, 128, 128, 0.399);
+  opacity: 0;
+  transform: translateY(40px);
+  transition: opacity 0.4s ease-out, transform 0.4s ease-out;
+  z-index: 10;
+}
+
+.active-state-share-popup.show {
+  opacity: 1;
+  transform: translateY(0px);
 }
 
 .share-text {
@@ -167,6 +181,7 @@ body {
 .share-text:hover {
   color: whitesmoke;
 }
+
 .share-options {
   display: flex;
   gap: 1.5rem;
@@ -185,6 +200,7 @@ body {
   clip-path: polygon(50% 0%, 0% 100%, 100% 100%);
   transform: rotate(180deg);
 }
+
 .hidden {
   display: none;
 }

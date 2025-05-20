@@ -10,12 +10,12 @@ const author = document.querySelector(".author");
 const shareContainer = document.querySelector(".share-container");
 
 shareButton.addEventListener("click", function () {
-  activeStateShareContainer.classList.toggle("hidden");
+  activeStateShareContainer.classList.toggle("show");
 
   if (window.innerWidth <= 800) {
     author.classList.toggle("hidden");
     shareContainer.classList.toggle("share-container-mobile");
-    mobileActiveStateShareContainer.classList.toggle("hidden");
+    mobileActiveStateShareContainer.classList.toggle("show");
     footer.classList.toggle("content-footer-active");
   }
 });
